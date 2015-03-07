@@ -9,6 +9,12 @@
     <h1>Shortly</h1>
 
     <!-- the ng-view directive is where our templates will be loaded into when naviagted to -->
+    <ul ng-controller="AppController">
+      <li ng-click="goHome()">Links</li>
+      <li ng-click="goShorten()">Shorten</li>
+      <li ng-click="goSignIn()">SignIn</li>
+      <li ng-click="goSignUp()">SignUp</li>
+    </ul>
     <div ng-view></div>
 
     <script src="lib/angular/angular.js"></script>

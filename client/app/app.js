@@ -5,6 +5,20 @@ angular.module('shortly', [
   'shortly.auth',
   'ngRoute'
 ])
+.controller('AppController', function($scope, $location){
+  $scope.goHome = function() {
+    $location.path('/');
+  };
+  $scope.goShorten = function() {
+    $location.path('/shorten');
+  };
+  $scope.goSignIn = function() {
+    $location.path('/signin');
+  };
+  $scope.goSignUp = function() {
+    $location.path('/signup');
+  };
+})
 .config(function($routeProvider, $httpProvider) {
   $routeProvider
     .when('/signin', {
@@ -22,7 +36,11 @@ angular.module('shortly', [
     .when('/', {
       templateUrl: 'app/links/links.html',
       controller: 'LinksController'
-    });
+    }).otherwise({
+      templateUrl: 'app/links/links.html',
+      controller: 'LinksController'
+    }
+    );
     // Your code here
 
     // We add our $httpInterceptor into the array

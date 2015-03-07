@@ -1,7 +1,10 @@
 <div id='container'>
 <!-- Your code here -->
-<input ng-model="shortLink">
-<button ng-click="addLink()">Add Link</button>
+<form name="urlForm" ng-submit="addLink(urlForm.$valid)" novalidate>
+  <p ng-show="urlForm.$invalid">Invalid URL</p>
+  <input required="true" ng-pattern="/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/" ng-model="shortLink">
+  <input type="submit" value="Add Link">
+</form>
 </div>
 
 
