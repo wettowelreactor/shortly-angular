@@ -2,6 +2,32 @@ angular.module('shortly.services', [])
 
 .factory('Links', function ($http) {
   // Your code here
+  var fetchAll = function (callback) {
+    $http.get('/api/links/').
+    success(function(data, status, headers, config) {
+      console.log('AJAX success ', data);
+      callback(data);
+    }).
+    error(function(data, status, headers, config) {
+      console.log('AJAX FAIL', data, status, headers, config);
+    });
+  };
+
+  var pushLink = function (data) {
+    $http.post('/api/links/', {url: data}).
+    success(function(data, status, headers, config) {
+      console.log('AJAX Post success ', data);
+      return data;
+    }).
+    error(function(data, status, headers, config) {
+      console.log('AJAX Post FAIL', data, status, headers, config);
+    });
+  };
+
+  return {
+    fetchAll: fetchAll,
+    pushLink: pushLink
+  };
 })
 .factory('Auth', function ($http, $location, $window) {
   // Don't touch this Auth service!!!

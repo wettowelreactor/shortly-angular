@@ -1,3 +1,10 @@
 <div id='container'>
   <!-- Your html here -->
+  <ul>
+    <li ng-repeat="link in links">
+      <div>{{ link.title }}</div>
+      <div>{{ link.url}} <span>{{ link.visits }}</span></div>
+      <div>{{ link.base_url }}/{{ link.code }}</div>
+    </li>
+  </ul>
 </div>
