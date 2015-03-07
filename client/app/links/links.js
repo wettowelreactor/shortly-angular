@@ -1,4 +1,4 @@
-angular.module('shortly.links', [])
+angular.module('shortly.links', ['shortly.shortlink'])
 
 .controller('LinksController', function ($scope, Links) {
   console.log('Before');

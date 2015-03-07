@@ -1,10 +1,8 @@
 <div id='container'>
   <!-- Your html here -->
+  <input ng-model="search">
   <ul>
-    <li ng-repeat="link in links">
-      <div>{{ link.title }}</div>
-      <div>{{ link.url}} <span>{{ link.visits }}</span></div>
-      <div>{{ link.base_url }}/#/c/{{ link.code }}</div>
-    </li>
+    <shortlink ng-repeat="link in links | filter: {url: search} | orderBy: '-visits'">
+    </shortlink>
   </ul>
 </div>
