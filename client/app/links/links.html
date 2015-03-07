@@ -2,7 +2,7 @@
   <!-- Your html here -->
   <input ng-model="search">
   <ul>
-    <shortlink ng-repeat="link in links | filter: {url: search} | orderBy: '-visits'">
+    <short-link ng-repeat="link in links | filter: {url: search} | orderBy: '-visits'">
     </shortlink>
   </ul>
 </div>

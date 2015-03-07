@@ -1,6 +1,7 @@
 angular.module('shortly.shortlink', [])
-.directive('ShortLink', function () {
+.directive('shortLink', function () {
   return {
+    restrict: 'AEC',
     templateUrl: 'app/links/shortlink.html'
   };
 });

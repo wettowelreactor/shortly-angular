@@ -13,11 +13,11 @@ angular.module('shortly.services', [])
     });
   };
 
-  var pushLink = function (data) {
+  var pushLink = function (data, callback) {
     $http.post('/api/links/', {url: data}).
     success(function(data, status, headers, config) {
       console.log('AJAX Post success ', data);
-      return data;
+      callback(data);
     }).
     error(function(data, status, headers, config) {
       console.log('AJAX Post FAIL', data, status, headers, config);
