@@ -3,6 +3,7 @@ var morgan      = require('morgan'), // used for logging incoming request
     helpers     = require('./helpers.js'); // our custom middleware
 
 
+
 module.exports = function (app, express) {
   // Express 4 allows us to use multiple routers with their own configurations
   var userRouter = express.Router();
@@ -19,6 +20,9 @@ module.exports = function (app, express) {
   // authentication middleware used to decode token and made available on the request
   //app.use('/api/links', helpers.decode);
   app.use('/api/links', linkRouter); // user link router for link request
+  app.get('/:id', function(req, res){
+    res.redirect('/api/links/'+req.params.id);
+  });
   app.use(helpers.errorLogger);
   app.use(helpers.errorHandler);
 

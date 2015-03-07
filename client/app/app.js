@@ -19,7 +19,7 @@ angular.module('shortly', [
     $location.path('/signup');
   };
 })
-.config(function($routeProvider, $httpProvider) {
+.config(function($routeProvider, $httpProvider, $locationProvider) {
   $routeProvider
     .when('/signin', {
       templateUrl: 'app/auth/signin.html',
@@ -33,7 +33,7 @@ angular.module('shortly', [
       templateUrl: 'app/shorten/shorten.html',
       controller: 'ShortenController'
     })
-    .when('/c/:id', {
+    .when('/:id', {
       redirectTo: function(data){window.location.href = '/api/links/'+data.id;}
     })
     .when('/', {
@@ -44,6 +44,8 @@ angular.module('shortly', [
       controller: 'LinksController'
     }
     );
+
+    $locationProvider.html5Mode(true); //Remove the '#' from URL.
     // Your code here
 
     // We add our $httpInterceptor into the array
